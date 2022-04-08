@@ -121,17 +121,20 @@ function App() {
       {user ? (
         <div>Entered name: {user}</div>
       ) : (
-        <div>
-          <form onSubmit={handleSubmit}>
+        <div className="name-form-div">
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="segment">
+              <h1>Let's get started !</h1>
+            </div>
             <label>
-              Enter your name:
               <input
                 type="text"
+                placeholder="Name"
                 value={nameInputValue}
                 onChange={handleChange}
               />
             </label>
-            <input type="submit" value="OK" />
+            <button className="submit-name" type="submit">OK</button>
           </form>
         </div>
       )}

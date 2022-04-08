@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import SendIcon from "../paper-plane.svg";
+
 const ChatBox = (props) => {
   const { divRef, messages, user, chatUser } = props;
   const [messageInputValue, setMessageInputValue] = useState("");
@@ -62,13 +64,19 @@ const ChatBox = (props) => {
         </div>
       </div>
       <form onSubmit={sendMessage}>
-        <div>
-          <input
-            type="text"
-            value={messageInputValue}
-            onChange={handleChange}
-          />
-          <input type="submit" value="Send" />
+        <div class="input-group">
+          <label>
+            <input
+              type="text"
+              className="message-input"
+              placeholder="Message"
+              value={messageInputValue}
+              onChange={handleChange}
+            />
+          </label>
+          <button class="unit" type="submit">
+            <img className="icon" src={SendIcon} alt="Send Message Icon" />
+          </button>
         </div>
       </form>
     </div>

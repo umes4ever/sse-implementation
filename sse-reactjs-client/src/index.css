@@ -1,10 +1,17 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body, p, input, select, textarea, button {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 16px;
+}
+
+body, html {
+  background-color: #EBECF0;
 }
 
 code {
@@ -24,10 +31,9 @@ code {
 
 .card {
   width: 300px;
-  height: 350px;
-  background-color: #FD5D5D;
+  height: 380px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
   padding: 8px;
 }
 
@@ -80,21 +86,131 @@ code {
   padding: 5px;
 }
 
-#style-3::-webkit-scrollbar-track
-{
-	background-color: #FF8080;
+#style-3::-webkit-scrollbar-track {
+  background-color: #FF8080;
   border-radius: 5px;
 }
 
-#style-3::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #FF8080;
+#style-3::-webkit-scrollbar {
+  width: 6px;
+  background-color: #FF8080;
   border-radius: 5px;
 }
 
-#style-3::-webkit-scrollbar-thumb
-{
-	background-color: #F6FFA4;
+#style-3::-webkit-scrollbar-thumb {
+  background-color: #F6FFA4;
   border-radius: 5px;
+}
+
+.name-form-div {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+div, p {
+  color: #BABECC;
+  text-shadow: 1px 1px 1px #FFF;
+}
+
+.form {
+  padding: 16px;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.segment {
+  padding: 16px 0;
+  text-align: center;
+}
+
+button, input {
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 32px;
+  padding: 16px;
+  background-color: #EBECF0;
+  text-shadow: 1px 1px 0 #FFF;
+}
+
+label {
+  display: block;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+input {
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input:focus {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+button {
+  color: #61677C;
+  font-weight: bold;
+  box-shadow: 0px 0px 10px #fff, 5px 5px 10px #babecc;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.icon {
+  margin-right: 8px;
+}
+
+button.unit {
+  border-radius: 8px;
+  line-height: 0;
+  width: 45px;
+  height: 45px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  font-size: 19px;
+}
+
+
+button.unit.icon {
+  margin-right: 0;
+}
+
+button.submit-name {
+  display: block;
+  width: 100%;
+  color: #AE1100;
+}
+
+button:hover {
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+button:active {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.input-group label {
+  margin: 0;
+  flex: 1;
+}
+
+.message-input {
+  width: 210px;
+    height: 45px;
 }
