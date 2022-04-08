@@ -119,7 +119,7 @@ function App() {
   return (
     <div className="App">
       {user ? (
-        <div>Entered name: {user}</div>
+        <div className="entered-name-div">Your name: <b>{user}</b></div>
       ) : (
         <div className="name-form-div">
           <form className="form" onSubmit={handleSubmit}>

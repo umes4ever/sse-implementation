@@ -37,9 +37,9 @@ const ChatBox = (props) => {
 
   return (
     <div className="card">
-      <div>Chat with {chatUser}</div>
+      <div className="card-title">Chat with <b>{chatUser}</b></div>
       <div className="message-area-maindiv">
-        <div className="message-area" ref={divRef} id="style-3">
+        <div className="message-area" ref={divRef} id="scroll-style">
           <div className="message-sender">
             {messages
               ? messages.map((message, index) =>
@@ -63,8 +63,8 @@ const ChatBox = (props) => {
           </div>
         </div>
       </div>
-      <form onSubmit={sendMessage}>
-        <div class="input-group">
+      <form className="send-message-form" onSubmit={sendMessage}>
+        <div className="input-group">
           <label>
             <input
               type="text"

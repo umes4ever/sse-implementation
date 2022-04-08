@@ -19,19 +19,24 @@ code {
     monospace;
 }
 
+div, p {
+  color: #BABECC;
+  text-shadow: 1px 1px 1px #FFF;
+}
+
 .chat-boxes {
+  max-width: 1800px;
   display: flex;
   justify-content: center;
-  row-gap: 30px;
-  column-gap: 40px;
+  row-gap: 80px;
+  column-gap: 80px;
   flex-wrap: wrap;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin: 50px;
 }
 
 .card {
   width: 300px;
-  height: 380px;
+  height: 400px;
   border-radius: 8px;
   box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
   padding: 8px;
@@ -46,12 +51,11 @@ code {
 .message-area {
   width: 280px;
   height: 280px;
-  background-color: #FF8080;
   overflow-x: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
 }
 
 .message-sender {
@@ -61,11 +65,10 @@ code {
 .message-item-sender {
   text-align: right;
   padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background: #FFF7BC;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
   border-radius: 5px;
+  color: #8e8b8b;
 }
 
 .message-item-sender span {
@@ -75,30 +78,28 @@ code {
 .message-item-owner {
   text-align: left;
   padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background: #C0EDA6;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  background: #e3e3e3;
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
   border-radius: 5px;
+  color: #8e8b8b;
 }
 
 .message-item-owner span {
   padding: 5px;
 }
 
-#style-3::-webkit-scrollbar-track {
-  background-color: #FF8080;
+#scroll-style::-webkit-scrollbar-track {
   border-radius: 5px;
 }
 
-#style-3::-webkit-scrollbar {
+#scroll-style::-webkit-scrollbar {
   width: 6px;
-  background-color: #FF8080;
   border-radius: 5px;
 }
 
-#style-3::-webkit-scrollbar-thumb {
-  background-color: #F6FFA4;
+#scroll-style::-webkit-scrollbar-thumb {
+  background-color: #e4e4ea;
   border-radius: 5px;
 }
 
@@ -108,11 +109,6 @@ code {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
-
-div, p {
-  color: #BABECC;
-  text-shadow: 1px 1px 1px #FFF;
 }
 
 .form {
@@ -212,5 +208,19 @@ button:active {
 
 .message-input {
   width: 210px;
-    height: 45px;
+  height: 45px;
+}
+
+.send-message-form {
+  margin-top: 6px;
+}
+
+.card-title {
+  padding: 10px;
+  color: #8e8b8b;
+}
+
+.entered-name-div {
+  color: #8e8b8b;
+  margin-top: 40px;
 }
