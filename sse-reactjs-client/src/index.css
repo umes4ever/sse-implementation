@@ -14,93 +14,16 @@ body, html {
   background-color: #EBECF0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 div, p {
   color: #BABECC;
   text-shadow: 1px 1px 1px #FFF;
 }
 
-.chat-boxes {
-  max-width: 1800px;
-  display: flex;
-  justify-content: center;
-  row-gap: 80px;
-  column-gap: 80px;
-  flex-wrap: wrap;
-  margin: 50px;
-}
+/* App.js */
 
-.card {
-  width: 300px;
-  height: 400px;
-  border-radius: 8px;
-  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
-  padding: 8px;
-}
-
-.message-area-maindiv {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.message-area {
-  width: 280px;
-  height: 280px;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  border-radius: 5px;
-  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
-}
-
-.message-sender {
-  padding: 10px;
-}
-
-.message-item-sender {
-  text-align: right;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
-  border-radius: 5px;
+.entered-name-div {
   color: #8e8b8b;
-}
-
-.message-item-sender span {
-  padding: 5px;
-}
-
-.message-item-owner {
-  text-align: left;
-  padding: 10px;
-  margin-bottom: 10px;
-  background: #e3e3e3;
-  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
-  border-radius: 5px;
-  color: #8e8b8b;
-}
-
-.message-item-owner span {
-  padding: 5px;
-}
-
-#scroll-style::-webkit-scrollbar-track {
-  border-radius: 5px;
-}
-
-#scroll-style::-webkit-scrollbar {
-  width: 6px;
-  border-radius: 5px;
-}
-
-#scroll-style::-webkit-scrollbar-thumb {
-  background-color: #e4e4ea;
-  border-radius: 5px;
+  margin-top: 40px;
 }
 
 .name-form-div {
@@ -160,27 +83,6 @@ button {
   font-weight: 600;
 }
 
-button.icon {
-  margin-right: 8px;
-}
-
-button.unit {
-  border-radius: 8px;
-  line-height: 0;
-  width: 45px;
-  height: 45px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px;
-  font-size: 19px;
-}
-
-
-button.unit.icon {
-  margin-right: 0;
-}
-
 button.submit-name {
   display: block;
   width: 100%;
@@ -193,6 +95,99 @@ button:hover {
 
 button:active {
   box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+.chat-boxes {
+  max-width: 1800px;
+  display: flex;
+  justify-content: center;
+  row-gap: 80px;
+  column-gap: 80px;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+/* ChatBox.js */
+
+.card {
+  width: 300px;
+  height: 400px;
+  border-radius: 8px;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  padding: 8px;
+}
+
+.card-title {
+  padding: 10px;
+  color: #8e8b8b;
+}
+
+.message-area-maindiv {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.message-area {
+  width: 280px;
+  height: 280px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+}
+
+
+/* Scroll Bar Style */
+
+#scroll-style::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+#scroll-style::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 5px;
+}
+
+#scroll-style::-webkit-scrollbar-thumb {
+  background-color: #e4e4ea;
+  border-radius: 5px;
+}
+
+.message-sender {
+  padding: 10px;
+}
+
+.message-item-sender {
+  text-align: right;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+  border-radius: 5px;
+  color: #8e8b8b;
+}
+
+.message-item-sender span {
+  padding: 5px;
+}
+
+.message-item-owner {
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #e3e3e3;
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+  border-radius: 5px;
+  color: #8e8b8b;
+}
+
+.message-item-owner span {
+  padding: 5px;
+}
+
+.send-message-form {
+  margin-top: 6px;
 }
 
 .input-group {
@@ -211,16 +206,18 @@ button:active {
   height: 45px;
 }
 
-.send-message-form {
-  margin-top: 6px;
+button.unit {
+  border-radius: 8px;
+  line-height: 0;
+  width: 45px;
+  height: 45px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  font-size: 19px;
 }
 
-.card-title {
-  padding: 10px;
-  color: #8e8b8b;
-}
-
-.entered-name-div {
-  color: #8e8b8b;
-  margin-top: 40px;
+button.unit.icon {
+  margin-right: 0;
 }

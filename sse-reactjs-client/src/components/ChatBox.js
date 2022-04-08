@@ -74,7 +74,7 @@ const ChatBox = (props) => {
               onChange={handleChange}
             />
           </label>
-          <button class="unit" type="submit">
+          <button className="unit" type="submit">
             <img className="icon" src={SendIcon} alt="Send Message Icon" />
           </button>
         </div>
