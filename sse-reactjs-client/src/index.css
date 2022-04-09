@@ -26,7 +26,7 @@ div, p {
   margin-top: 40px;
 }
 
-.name-form-div {
+.name-form-div, .empty-div {
   position: fixed;
   top: 40%;
   left: 50%;

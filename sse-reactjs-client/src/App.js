@@ -119,7 +119,9 @@ function App() {
   return (
     <div className="App">
       {user ? (
-        <div className="entered-name-div">Your name: <b>{user}</b></div>
+        <div className="entered-name-div">
+          Your name: <b>{user}</b>
+        </div>
       ) : (
         <div className="name-form-div">
           <form className="form" onSubmit={handleSubmit}>
@@ -134,7 +136,9 @@ function App() {
                 onChange={handleChange}
               />
             </label>
-            <button className="submit-name" type="submit">OK</button>
+            <button className="submit-name" type="submit">
+              OK
+            </button>
           </form>
         </div>
       )}
@@ -150,6 +154,12 @@ function App() {
               chatUser={chatUser}
             />
           ))}
+        </div>
+      ) : user ? (
+        <div className="empty-div">
+          <div className="segment">
+            <h1>No one to chat with right now !</h1>
+          </div>
         </div>
       ) : (
         ""
