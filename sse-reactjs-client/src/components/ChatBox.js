@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import SendIcon from "../paper-plane.svg";
 
+const serverURL = process.env.REACT_APP_SERVER_URL;
+
 const ChatBox = (props) => {
   const { divRef, messages, user, chatUser } = props;
   const [messageInputValue, setMessageInputValue] = useState("");
@@ -25,7 +27,7 @@ const ChatBox = (props) => {
       };
 
       const response = await fetch(
-        `http://192.168.1.68:8080/sse-server/user/message`,
+        `${serverURL}/sse-server/user/message`,
         requestOptions
       );
 

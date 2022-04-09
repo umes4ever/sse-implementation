@@ -3,6 +3,8 @@ import "./App.css";
 
 import ChatBox from "./components/ChatBox";
 
+const serverURL = process.env.REACT_APP_SERVER_URL;
+
 function App() {
   const [user, setUser] = useState("");
   const [nameInputValue, setNameInputValue] = useState("");
@@ -14,21 +16,21 @@ function App() {
 
   useEffect(() => {
     const sseForLastMessage = new EventSource(
-      `http://192.168.1.68:8080/sse-server/user/messages?name=${user}`,
+      `${serverURL}/sse-server/user/messages?name=${user}`,
       {
         withCredentials: true,
       }
     );
 
     const sseForAllMessages = new EventSource(
-      `http://192.168.1.68:8080/sse-server/user/messages/all?name=${user}`,
+      `${serverURL}/sse-server/user/messages/all?name=${user}`,
       {
         withCredentials: true,
       }
     );
 
     const sseForUsers = new EventSource(
-      `http://192.168.1.68:8080/sse-server/users?name=${user}`,
+      `${serverURL}/sse-server/users?name=${user}`,
       {
         withCredentials: true,
       }
@@ -105,7 +107,7 @@ function App() {
       };
 
       const response = await fetch(
-        `http://192.168.1.68:8080/sse-server/user?name=${nameInputValue}`,
+        `${serverURL}/sse-server/user?name=${nameInputValue}`,
         requestOptions
       );
 
