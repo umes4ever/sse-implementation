@@ -12,7 +12,7 @@ function App() {
   const [messages, setMessages] = useState();
   const [users, setUsers] = useState();
 
-  const divRef = useRef(null);
+  const divRefs = useRef([]);
 
   useEffect(() => {
     const sseForLastMessage = new EventSource(
@@ -53,6 +53,8 @@ function App() {
 
       if (JSON.stringify(jsonData) !== JSON.stringify(newMessage)) {
         setNewMessage(jsonData);
+
+        // scroll to bottom, added 1 sec timeout to wait for updated message list
         setTimeout(scrollToBottom, 1000);
       }
     });
@@ -90,8 +92,12 @@ function App() {
   }, [user, newMessage]);
 
   const scrollToBottom = () => {
-    const scroll = divRef.current.scrollHeight - divRef.current.clientHeight;
-    divRef.current.scrollTo(0, scroll);
+    if (divRefs && divRefs.current.length > 0) {
+      divRefs.current.map((divRef) => {
+        const scroll = divRef.scrollHeight - divRef.clientHeight;
+        return divRef.scrollTo(0, scroll);
+      });
+    }
   };
 
   const handleChange = (event) => {
@@ -150,7 +156,8 @@ function App() {
           {users.map((chatUser, index) => (
             <ChatBox
               key={index}
-              divRef={divRef}
+              index={index}
+              divRefs={divRefs}
               messages={messages}
               user={user}
               chatUser={chatUser}

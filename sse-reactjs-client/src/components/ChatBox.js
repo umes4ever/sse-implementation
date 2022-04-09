@@ -5,7 +5,7 @@ import SendIcon from "../paper-plane.svg";
 const serverURL = process.env.REACT_APP_SERVER_URL;
 
 const ChatBox = (props) => {
-  const { divRef, messages, user, chatUser } = props;
+  const { divRefs, messages, user, chatUser, index } = props;
   const [messageInputValue, setMessageInputValue] = useState("");
 
   const handleChange = (event) => {
@@ -39,9 +39,17 @@ const ChatBox = (props) => {
 
   return (
     <div className="card">
-      <div className="card-title">Chat with <b>{chatUser}</b></div>
+      <div className="card-title">
+        Chat with <b>{chatUser}</b>
+      </div>
       <div className="message-area-maindiv">
-        <div className="message-area" ref={divRef} id="scroll-style">
+        <div
+          className="message-area"
+          ref={(element) => {
+            divRefs.current[index] = element;
+          }}
+          id="scroll-style"
+        >
           <div className="message-sender">
             {messages
               ? messages.map((message, index) =>
