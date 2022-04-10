@@ -16,6 +16,8 @@ import reactor.core.publisher.Flux;
 @Service
 public class SSEService {
 
+	private static final String NO_MESSAGE_TEXT = "No message yet !";
+
 	List<String> users = new ArrayList<>();
 	Map<String, List<Message>> messageForMap = new HashMap<>();
 
@@ -28,10 +30,10 @@ public class SSEService {
 				List<Message> messages = messageForMap.get(u);
 
 				if (messages != null) {
-					messageForMap.get(u).add(new Message(name, u, "No message yet !"));
-					messageForNewUser.add(new Message(u, name, "No message yet !"));
+					messageForMap.get(u).add(new Message(name, u, NO_MESSAGE_TEXT));
+					messageForNewUser.add(new Message(u, name, NO_MESSAGE_TEXT));
 				} else {
-					messageForNewUser.add(new Message(name, u, "No message yet !"));
+					messageForNewUser.add(new Message(name, u, NO_MESSAGE_TEXT));
 				}
 			});
 
@@ -39,37 +41,33 @@ public class SSEService {
 		}
 	}
 
-	public List<String> listUsers(String name) {
-		return users.stream().filter(u -> !u.equals(name)).toList();
-	}
-
 	public void sendUserMessage(Message message) {
 		if (users.contains(message.getFrom()) && users.contains(message.getTo())) {
 			List<Message> messagesTo = messageForMap.get(message.getTo());
 			List<Message> messagesFrom = messageForMap.get(message.getFrom());
 
-			// remove "No message yet !" message for "from" user
+			// Remove "No message yet !" message for "from" user
 			List<Message> newMessagesTo = new ArrayList<>();
 			messagesTo.stream().forEach(m -> {
-				if (m.getFrom().equals(message.getFrom()) && m.getMessage().equals("No message yet !")) {
+				if (m.getFrom().equals(message.getFrom()) && m.getMessage().equals(NO_MESSAGE_TEXT)) {
 					return;
 				}
 
-				if (m.getFrom().equals(m.getTo()) && m.getMessage().equals("No message yet !")) {
+				if (m.getFrom().equals(m.getTo()) && m.getMessage().equals(NO_MESSAGE_TEXT)) {
 					return;
 				}
 
 				newMessagesTo.add(m);
 			});
 
-			// remove "No message yet !" message for "to" user
+			// Remove "No message yet !" message for "to" user
 			List<Message> newMessagesFrom = new ArrayList<>();
 			messagesFrom.stream().forEach(m -> {
-				if (m.getFrom().equals(message.getTo()) && m.getMessage().equals("No message yet !")) {
+				if (m.getFrom().equals(message.getTo()) && m.getMessage().equals(NO_MESSAGE_TEXT)) {
 					return;
 				}
 
-				if (m.getFrom().equals(m.getTo()) && m.getMessage().equals("No message yet !")) {
+				if (m.getFrom().equals(m.getTo()) && m.getMessage().equals(NO_MESSAGE_TEXT)) {
 					return;
 				}
 
